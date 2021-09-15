@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+    <style>
+        html {
+            background-color: #050210;
+        }
+        
+        #cerc-exterior {
+            position: relative;
+            margin: 0 auto;
+            top: 75px;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(#fb5dad, #55fb9f, #b97aff);
+            border-radius: 50%;
+            box-shadow: 0px 0px 100px 30px rgba(251, 93, 173, 0.5), 0px 0px 100px 20px rgba(85, 251, 159, 0.5), 0px 0px 100px 10px rgba(185, 122, 255, 0.5);
+            animation: rotatie 1.5s linear infinite;
+        }
+        
+        @keyframes rotatie {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        #cerc-exterior::before {
+            content: "";
+            filter: contrast(30%);
+            filter: blur(50px);
+            filter: hue-rotate(180deg);
+            filter: opacity(80%);
+        }
+        
+        #cerc-interior {
+            transform-origin: 50% 50% 0;
+            position: absolute;
+            transform: translate(50px, 50px);
+            width: 400px;
+            height: 400px;
+            background-color: #050210;
+            border-radius: 50%;
+        }
+        
+        #nuanta {
+            transform-origin: 50% 50% 0;
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: #08031c;
+            border-radius: 50%;
+            animation: nuantare 1.5s ease-in-out infinite;
+        }
+        
+        #nuanta::after {
+            content: "";
+            filter: brightness(0.5);
+            filter: contrast(70%);
+        }
+        
+        @keyframes nuantare {
+            0% {
+                transform: scale(0%);
+            }
+            100% {
+                transform: scale(100%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cerc-exterior">
+        <div id="cerc-interior"><span id="nuanta"></span></div>
+    </div>
+</body>
+
+</html>
